@@ -8,22 +8,26 @@ import { environment } from '../environments/environment';
 export class TodoService {
     constructor(private http: HttpClient) { }
     getTodos(): Observable<any> {
-        const url = environment.baseURL;
+        // const url = environment.baseURL;
+        const url = environment.baseURLOpenshift;
         return this.http.get(url);
     }
 
     postTodos(param: any): Observable<any> {
-        const url = environment.baseURLPost;
+        // const url = environment.baseURLPost;
+        const url = environment.baseURLOpenshift + '/' + "post";
         return this.http.post(url, param);
     }
 
     deleteTodo(id: any): Observable<any> {
-        const url = environment.baseURL + '/' + id;
+        // const url = environment.baseURL + '/' + id;
+        const url = environment.baseURLOpenshift + '/' + id;
         return this.http.delete(url);
     }
 
     updateTodo(param: any, id: any): Observable<any> {
-        const url = environment.baseURL + '/' + id;
+        // const url = environment.baseURL + '/' + id;
+        const url = environment.baseURLOpenshift + '/' + id;
         return this.http.put(url, param);
     }
 
